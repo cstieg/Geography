@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Cstieg.StringHelper;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cstieg.Geography
 {
@@ -8,6 +9,9 @@ namespace Cstieg.Geography
     /// </summary>
     public class AddressBase
     {
+        [Key]
+        public virtual int Id { get; set; }
+
         public virtual string Recipient { get; set; }
 
         public virtual string Address1 { get; set; }

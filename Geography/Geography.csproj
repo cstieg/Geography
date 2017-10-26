@@ -29,13 +29,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>ShotgunAdapters.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="StringHelper">
-      <HintPath>..\..\StringHelper\bin\Release\StringHelper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -54,6 +57,21 @@
     <Compile Include="GeoRange.cs" />
     <Compile Include="LatLng.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Geography.pfx" />
+    <None Include="image.pfx" />
+    <None Include="ShotgunAdapters.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SessionHelper\SessionHelper\SessionHelper.csproj">
+      <Project>{890d5c31-8e0c-40f9-94de-36b4fddb2aae}</Project>
+      <Name>SessionHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StringHelper\StringHelper.csproj">
+      <Project>{dff3ef94-9144-45eb-be2d-9bde93671212}</Project>
+      <Name>StringHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
