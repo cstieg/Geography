@@ -7,7 +7,7 @@
     <ProjectGuid>{C68013C0-5ECD-4C34-AE72-07F6742EFB70}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Geography</RootNamespace>
+    <RootNamespace>Cstieg.Geography</RootNamespace>
     <AssemblyName>Geography</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -35,7 +35,22 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>ShotgunAdapters.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Remote|AnyCPU'">
+    <OutputPath>bin\Remote\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\StovepipeHeatSaver.com\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\StovepipeHeatSaver.com\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -53,14 +68,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressBase.cs" />
+    <Compile Include="Country.cs" />
     <Compile Include="GeoLocation.cs" />
     <Compile Include="GeoRange.cs" />
     <Compile Include="LatLng.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="Geography.pfx" />
     <None Include="image.pfx" />
+    <None Include="packages.config" />
     <None Include="ShotgunAdapters.pfx" />
   </ItemGroup>
   <ItemGroup>
