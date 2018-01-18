@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Cstieg.StringHelper;
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace Cstieg.Geography
 {
@@ -30,7 +31,10 @@ namespace Cstieg.Geography
 
         public override string ToString()
         {
-            return Address1 + " " + Address2 + ", " + City + ", " + State + " " + PostalCode;
+            string address = Address1;
+            if (Address2 != "") address += " " + Address2;
+            address += ", " + City + ", " + State + " " + PostalCode;
+            return address;
         }
 
         /// <summary>
@@ -74,6 +78,10 @@ namespace Cstieg.Geography
         /// <param name="address">The destination object</param>
         public void CopyTo(AddressBase address)
         {
+            if (address == null)
+            {
+                throw new Exception("address must not be null");
+            }
             PropertyInfo[] properties = GetType().GetProperties();
             for (int i = 0; i < properties.Length; i++)
             {
